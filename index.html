@@ -54,47 +54,63 @@
 
       <section class="form-section">
         <form action="" method="get">
-          <label for="card-name">CARDHOLDER NAME</label>
-          <input
-            type="text"
-            name="card-name"
-            id="card-name"
-            placeholder="e.g. Jane Appleseed"
-            required
-          />
-          <label for="card-number">CARD NUMBER</label>
-          <input
-            type="text"
-            name="card-number"
-            id="card-number"
-            placeholder="e.g. 1234 5678 9123 0000"
-            required
-          />
-          <label for="card-exp-date">EXP. DATE (MM/YY)</label>
-          <div>
+          <div class="card-name-container">
+            <label class="card-name-label" for="card-name"
+              >CARDHOLDER NAME</label
+            >
             <input
-              type="number"
-              name="card-exp-date"
-              id="card-exp-date"
-              placeholder="MM"
-              required
-            />
-            <input
-              type="number"
-              name="card-exp-date"
-              id="card-exp-date"
-              placeholder="YY"
+              type="text"
+              name="card-name"
+              id="card-name"
+              placeholder="e.g. Jane Appleseed"
               required
             />
           </div>
-          <label for="card-cvc">CVC</label>
-          <input
-            type="number"
-            name="card-cvc"
-            id="card-cvc"
-            placeholder="e.g. 123 Confirm"
-            required
-          />
+          <div class="card-number-container">
+            <label class="card-number-label" for="card-number"
+              >CARD NUMBER</label
+            >
+            <input
+              type="text"
+              name="card-number"
+              id="card-number"
+              placeholder="e.g. 1234 5678 9123 0000"
+              required
+            />
+          </div>
+          <div class="form-bottom-section">
+            <div class="form-exp-date-container">
+              <label class="card-exp-date-label" for="card-exp-date"
+                >EXP. DATE (MM/YY)</label
+              >
+              <div class="form-bottom-container">
+                <input
+                  type="number"
+                  name="card-exp-date"
+                  id="card-exp-date"
+                  placeholder="MM"
+                  required
+                />
+                <input
+                  type="number"
+                  name="card-exp-date"
+                  id="card-exp-date"
+                  placeholder="YY"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-cvc-container">
+              <label class="card-cvc-label" for="card-cvc">CVC</label>
+              <input
+                type="number"
+                name="card-cvc"
+                id="card-cvc"
+                placeholder="e.g. 123"
+                required
+              />
+            </div>
+          </div>
           <button>Confirm</button>
         </form>
       </section>
