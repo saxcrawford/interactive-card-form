@@ -7,6 +7,7 @@
   --color-blue-gray: hsl(214, 12%, 74%);
   --color-washed-black: hsl(0, 0%, 15%);
   --color-dark-purple: hsl(278, 68%, 11%);
+  --color-red: hsl(0, 100%, 66%);
 }
 
 * {
@@ -143,7 +144,8 @@ body {
   margin-right: 15px;
 }
 
-.form-section {
+.form-section,
+.completed-section {
   min-width: 400px;
   max-width: 400px;
 }
@@ -172,7 +174,12 @@ form {
 input {
   height: 45px;
   border-radius: 10px;
-  border: 1px solid var(--color-light-gray);
+  border: 1.5px solid var(--color-light-gray);
+  outline: none;
+}
+
+input:focus {
+  border-color: var(--color-purple);
 }
 
 input::-webkit-outer-spin-button,
@@ -189,7 +196,8 @@ input[type="number"] {
 #card-name,
 #card-number,
 #card-cvc,
-#card-exp-date {
+#card-exp-date-month,
+#card-exp-date-year {
   font-size: 16px;
   opacity: 50%;
   padding-left: 15px;
@@ -209,7 +217,8 @@ input[type="number"] {
   gap: 10px;
 }
 
-#card-exp-date {
+#card-exp-date-month,
+#card-exp-date-year {
   width: 75px;
 }
 
@@ -219,7 +228,7 @@ input[type="number"] {
   flex-direction: column;
 }
 
-#card-cvc {
+.form-cvc-container {
   width: 100%;
 }
 
@@ -227,7 +236,8 @@ input[type="number"] {
   display: flex;
 }
 
-#card-exp-date,
+#card-exp-date-month,
+#card-exp-date-year,
 #card-cvc {
   margin-top: 10px;
 }
@@ -240,4 +250,54 @@ button {
   background: var(--color-dark-purple);
   color: white;
   font-size: 16px;
+}
+
+.error {
+  border-color: var(--color-red) !important;
+}
+
+.error-message {
+  display: none;
+  color: var(--color-red);
+  font-size: 10px;
+}
+
+.error-message.show {
+  display: block;
+}
+
+.form-bottom-section input {
+  margin-bottom: 10px;
+}
+
+.completed-section {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-right: 60px;
+}
+
+.completed-image {
+  width: 65px;
+}
+
+.completed-heading {
+  font-size: 22px;
+}
+
+.completed-message {
+  font-size: 13px;
+  opacity: 50%;
+}
+
+.completed-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.completed-section button {
+  width: 90%;
 }

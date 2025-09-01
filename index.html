@@ -51,7 +51,6 @@
           <p class="card-back-num">000</p>
         </div>
       </section>
-
       <section class="form-section">
         <form id="form-information" action="index.html" method="post">
           <div class="card-name-container">
@@ -63,45 +62,59 @@
               name="card-name"
               id="card-name"
               placeholder="e.g. Jane Appleseed"
-              required
             />
+            <div class="error-message" id="card-name-error">
+              Must enter name
+            </div>
           </div>
           <div class="card-number-container">
             <label class="card-number-label" for="card-number"
               >CARD NUMBER</label
             >
             <input
-              type="number"
+              type="tel"
               name="card-number"
               id="card-number"
               placeholder="e.g. 1234 5678 9123 0000"
-              required
             />
+            <div class="error-message" id="card-number-error">
+              Must enter a valid card number
+            </div>
           </div>
           <div class="form-bottom-section">
             <div class="form-exp-date-container">
-              <label class="card-exp-date-label" for="card-exp-date"
+              <label
+                class="card-exp-date-label"
+                for="card-exp-date-month card-exp-date-year"
                 >EXP. DATE (MM/YY)</label
               >
               <div class="form-bottom-container">
-                <input
-                  type="number"
-                  name="card-exp-date"
-                  id="card-exp-date"
-                  placeholder="MM"
-                  min="1"
-                  max="12"
-                  required
-                />
-                <input
-                  type="number"
-                  name="card-exp-date"
-                  id="card-exp-date"
-                  placeholder="YY"
-                  min="20"
-                  max="50"
-                  required
-                />
+                <div class="form-group-error">
+                  <input
+                    type="number"
+                    name="card-exp-date-month"
+                    id="card-exp-date-month"
+                    placeholder="MM"
+                    min="1"
+                    max="12"
+                  />
+                  <div class="error-message" id="card-date-error-month">
+                    Must enter month
+                  </div>
+                </div>
+                <div class="form-group-error">
+                  <input
+                    type="number"
+                    name="card-exp-date-year"
+                    id="card-exp-date-year"
+                    placeholder="YY"
+                    min="20"
+                    max="50"
+                  />
+                  <div class="error-message" id="card-date-error-year">
+                    Must enter year
+                  </div>
+                </div>
               </div>
             </div>
             <div class="form-cvc-container">
@@ -113,17 +126,29 @@
                 placeholder="e.g. 123"
                 min="100"
                 max="999"
-                required
               />
+              <div class="error-message" id="card-cvc-error">
+                Must enter CVC
+              </div>
             </div>
           </div>
           <button type="submit">Confirm</button>
         </form>
       </section>
+      <section class="completed-section">
+        <img
+          class="completed-image"
+          src="./images/icon-complete.svg"
+          alt="Blue circle with a white checkmark in it"
+        />
+        <div class="completed-text-container">
+          <h2 class="completed-heading">THANK YOU!</h2>
+          <p class="completed-message">We've added your card details</p>
+        </div>
+        <button>Continue</button>
+      </section>
     </div>
     <!-- Completed state start -->
-
-    Thank you! We've added your card details Continue
 
     <div class="attribution">
       Challenge by
