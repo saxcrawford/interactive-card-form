@@ -1,7 +1,5 @@
 const form = document.getElementById("form-information");
 
-let regex = /(.{4})/g;
-
 function showError(elementID, errorID) {
     const element = document.getElementById(elementID);
     const error = document.getElementById(errorID);
@@ -42,31 +40,34 @@ function validateCardNumber(elementID, errorID) {
     }
 }
 
+document.getElementById('card-name').addEventListener('input', () => {
+    document.querySelector(".card-front-name").textContent = form.elements["card-name"].value;
+});
+document.getElementById('card-number').addEventListener('input', () => {
+    document.querySelector(".card-front-digits").textContent = form.elements["card-number"].value.replace(/\D/g, "")
+        .replace(/(.{4})/g, "$1 ").trim().substring(0, 19);
+});
+document.getElementById('card-exp-date-month').addEventListener('input', () => {
+    document.querySelector(".card-front-date-first").textContent = `${form.elements["card-exp-date-month"].value.toString().padStart(2, '0').substring(0, 2)}`;
+});
+document.getElementById('card-exp-date-year').addEventListener('input', () => {
+    document.querySelector(".card-front-date-last").textContent = `${form.elements["card-exp-date-year"].value.substring(0, 2)}`;
+});
+document.getElementById('card-cvc').addEventListener('input', () => {
+    document.querySelector(".card-back-num").textContent = form.elements["card-cvc"].value.substring(0, 3);
+});
+
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const isNameValid = validateField("card-name", "card-name-error", true);
     const isNumberValid = validateCardNumber("card-number", "card-number-error");
-    const isDateMonthValid = validateField(
-        "card-exp-date-month",
-        "card-date-error-month",
-        true
-    );
-    const isDateYearValid = validateField(
-        "card-exp-date-year",
-        "card-date-error-year",
-        true
-    );
+    const isDateMonthValid = validateField("card-exp-date-month", "card-date-error-month", true);
+    const isDateYearValid = validateField("card-exp-date-year", "card-date-error-year", true);
     const isCVCValid = validateField("card-cvc", "card-cvc-error", true);
 
     console.log(isNumberValid);
-    if (
-        isNameValid &&
-        isNumberValid &&
-        isDateMonthValid &&
-        isDateYearValid &&
-        isCVCValid
-    ) {
+    if (isNameValid && isNumberValid && isDateMonthValid && isDateYearValid && isCVCValid) {
         const cardName = form.elements["card-name"].value;
         const cardNumber = form.elements["card-number"].value;
         const cardMonth = form.elements["card-exp-date-month"].value;
@@ -75,13 +76,11 @@ form.addEventListener("submit", (e) => {
 
         document.querySelector(".card-front-digits").textContent = cardNumber;
         document.querySelector(".card-front-name").textContent = cardName;
-        document.querySelector(
-            ".card-front-date"
-        ).textContent = `${cardMonth}/${cardYear}`;
+        document.querySelector(".card-front-date").textContent = `${cardMonth}/${cardYear}`;
         document.querySelector(".card-back-num").textContent = cardCVC;
 
-        // document.querySelector(".form-section").style.display = "none";
-        // document.querySelector(".completed-section").style.display = "flex";
+        document.querySelector(".form-section").style.display = "none";
+        document.querySelector(".completed-section").style.display = "flex";
     }
 });
 
@@ -106,12 +105,12 @@ cardNumberInput.oninput = () => {
 const cardMonthInput = document.getElementById("card-exp-date-month");
 cardMonthInput.oninput = () => {
     cardMonthInput.value = cardMonthInput.value
-        .replace(/\D/g, "").replace(/\[1-9][0-9]?/).trim().substring(0, 2);
+        .replace(/\D/g, "").trim().substring(0, 2);
 };
 
 cardMonthInput.addEventListener('blur', (e) => {
     let value = parseInt(e.target.value);
-    if(!isNaN(value)) {
+    if (!isNaN(value)) {
         e.target.value = value.toString().padStart(2, '0');
     }
 });
@@ -128,8 +127,10 @@ cardCVCInput.oninput = () => {
         .replace(/\D/g, "").trim().substring(0, 3);
 };
 
-// if (window.performance.getEntriesByType("navigation")[0].type === "reload") {
-//   if (confirm("This will reset your form. Continue?")) {
-//     form.reset();
-//   }
-// }
+if (form.elements["card-name"].value !== "" || form.elements["card-number"].value !== "" || form.elements["card-exp-date-month"].value !== "" || form.elements["card-exp-date-year"].value !== "" || form.elements["card-cvc"].value !== "") {
+    if (window.performance.getEntriesByType("navigation")[0].type === "reload") {
+        if (confirm("This will reset your form. Continue?")) {
+            form.reset();
+        }
+    }
+}

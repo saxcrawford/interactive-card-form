@@ -1,161 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!-- displays site properly based on user's device -->
 
     <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon-32x32.png"
     />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap"
-      rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap"
+            rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css"/>
 
     <title>Frontend Mentor | Interactive card details form</title>
-  </head>
-  <body>
-    <img
-      src="./images/bg-main-desktop.png"
-      alt="Background image that is behind elements and multicolored"
-      class="background-section"
-    />
-    <div class="container">
-      <section class="card-section">
+</head>
+<body>
+<img
+        src="./images/bg-main-desktop.png"
+        alt="Background image that is behind elements and multicolored"
+        class="background-section"
+/>
+<div class="container">
+    <section class="card-section">
         <div class="card-front">
-          <img
-            src="./images/bg-card-front.png"
-            alt="Front of card that is multicolored"
-            class="card-front-image"
-          />
-          <img src="./images/card-logo.svg" alt="" class="card-front-logo" />
-          <p class="card-front-digits">0000 0000 0000 0000</p>
-          <p class="card-front-name">JANE APPLESEED</p>
-          <p class="card-front-date">00/00</p>
+            <img
+                    src="./images/bg-card-front.png"
+                    alt="Front of card that is multicolored"
+                    class="card-front-image"
+            />
+            <img src="./images/card-logo.svg" alt="" class="card-front-logo"/>
+            <p class="card-front-digits">0000 0000 0000 0000</p>
+            <p class="card-front-name">JANE APPLESEED</p>
+            <div class="card-front-date"><p class="card-front-date-first">00</p><p class="card-front-date-middle">/</p><p class="card-front-date-last">00</p></div>
         </div>
         <div class="card-back">
-          <img
-            src="./images/bg-card-back.png"
-            alt="Back of card showing 3 digit code"
-            class="card-back-image"
-          />
-          <p class="card-back-num">000</p>
+            <img
+                    src="./images/bg-card-back.png"
+                    alt="Back of card showing 3 digit code"
+                    class="card-back-image"
+            />
+            <p class="card-back-num">000</p>
         </div>
-      </section>
-      <section class="form-section">
+    </section>
+    <section class="form-section">
         <form id="form-information" action="index.html" method="post">
-          <div class="card-name-container">
-            <label class="card-name-label" for="card-name"
-              >CARDHOLDER NAME</label
-            >
-            <input
-              type="text"
-              name="card-name"
-              id="card-name"
-              placeholder="e.g. Jane Appleseed"
-            />
-            <div class="error-message" id="card-name-error">
-              Must enter name
-            </div>
-          </div>
-          <div class="card-number-container">
-            <label class="card-number-label" for="card-number"
-              >CARD NUMBER</label
-            >
-            <input
-              type="tel"
-              name="card-number"
-              id="card-number"
-              placeholder="e.g. 1234 5678 9123 0000"
-            />
-            <div class="error-message" id="card-number-error">
-              Must enter a valid card number
-            </div>
-          </div>
-          <div class="form-bottom-section">
-            <div class="form-exp-date-container">
-              <label
-                class="card-exp-date-label"
-                for="card-exp-date-month"
-                >EXP. DATE (MM/YY)</label
-              >
-              <div class="form-bottom-container">
-                <div class="form-group-error">
-                  <input
-                    type="number"
-                    name="card-exp-date-month"
-                    id="card-exp-date-month"
-                    placeholder="MM"
-                    min="1"
-                    max="12"
-                  />
-                  <div class="error-message" id="card-date-error-month">
-                    Must enter month
-                  </div>
+            <div class="card-name-container">
+                <label class="card-name-label" for="card-name"
+                >CARDHOLDER NAME</label
+                >
+                <input
+                        type="text"
+                        name="card-name"
+                        id="card-name"
+                        placeholder="e.g. Jane Appleseed"
+                />
+                <div class="error-message" id="card-name-error">
+                    Must enter name
                 </div>
-                <div class="form-group-error">
-                  <input
-                    type="number"
-                    name="card-exp-date-year"
-                    id="card-exp-date-year"
-                    placeholder="YY"
-                    min="20"
-                    max="35"
-                  />
-                  <div class="error-message" id="card-date-error-year">
-                    Must enter year
-                  </div>
+            </div>
+            <div class="card-number-container">
+                <label class="card-number-label" for="card-number"
+                >CARD NUMBER</label
+                >
+                <input
+                        type="tel"
+                        name="card-number"
+                        id="card-number"
+                        placeholder="e.g. 1234 5678 9123 0000"
+                />
+                <div class="error-message" id="card-number-error">
+                    Must enter a valid card number
                 </div>
-              </div>
             </div>
-            <div class="form-cvc-container">
-              <label class="card-cvc-label" for="card-cvc">CVC</label>
-              <input
-                type="number"
-                name="card-cvc"
-                id="card-cvc"
-                placeholder="e.g. 123"
-                min="100"
-                max="999"
-              />
-              <div class="error-message" id="card-cvc-error">
-                Must enter CVC
-              </div>
+            <div class="form-bottom-section">
+                <div class="form-exp-date-container">
+                    <label
+                            class="card-exp-date-label"
+                            for="card-exp-date-month"
+                    >EXP. DATE (MM/YY)</label
+                    >
+                    <div class="form-bottom-container">
+                        <div class="form-group-error">
+                            <input
+                                    type="number"
+                                    name="card-exp-date-month"
+                                    id="card-exp-date-month"
+                                    placeholder="MM"
+                                    min="1"
+                                    max="12"
+                            />
+                            <div class="error-message" id="card-date-error-month">
+                                Must enter month
+                            </div>
+                        </div>
+                        <div class="form-group-error">
+                            <label for="card-exp-date-year"></label><input
+                                type="number"
+                                name="card-exp-date-year"
+                                id="card-exp-date-year"
+                                placeholder="YY"
+                                min="20"
+                                max="35"
+                        />
+                            <div class="error-message" id="card-date-error-year">
+                                Must enter year
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-cvc-container">
+                    <label class="card-cvc-label" for="card-cvc">CVC</label>
+                    <input
+                            type="number"
+                            name="card-cvc"
+                            id="card-cvc"
+                            placeholder="e.g. 123"
+                            min="100"
+                            max="999"
+                    />
+                    <div class="error-message" id="card-cvc-error">
+                        Must enter CVC
+                    </div>
+                </div>
             </div>
-          </div>
-          <button type="submit">Confirm</button>
+            <button type="submit">Confirm</button>
         </form>
-      </section>
-      <section class="completed-section">
+    </section>
+    <section class="completed-section">
         <img
-          class="completed-image"
-          src="./images/icon-complete.svg"
-          alt="Blue circle with a white checkmark in it"
+                class="completed-image"
+                src="./images/icon-complete.svg"
+                alt="Blue circle with a white checkmark in it"
         />
         <div class="completed-text-container">
-          <h2 class="completed-heading">THANK YOU!</h2>
-          <p class="completed-message">We've added your card details</p>
+            <h2 class="completed-heading">THANK YOU!</h2>
+            <p class="completed-message">We've added your card details</p>
         </div>
         <button>Continue</button>
-      </section>
-    </div>
-    <!-- Completed state start -->
+    </section>
+</div>
+<!-- Completed state start -->
 
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
-    </div>
-    <script src="./script.js"></script>
-  </body>
+<div class="attribution">
+    Challenge by
+    <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+    >Frontend Mentor</a
+    >. Coded by <a href="#">Your Name Here</a>.
+</div>
+<script src="./script.js"></script>
+</body>
 </html>
