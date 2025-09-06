@@ -326,26 +326,41 @@ button {
     }
 }
 
-@media (max-width: 375px) {
-    .container {
-        flex-direction: column;
+@media screen and (max-width: 375px) {
+    .card-section, .form-section, .completed-section {
+        min-width: 100%;
+        max-width: 100%;
     }
 
     .background-section {
-        bottom: 1175px;
-        width: 100%;
+        max-width: 375px;
     }
 
-    .card-front {
-        width: auto;
-        height: 450px;
+    .form-section {
+        margin-right: 0;
+    }
+
+    .card-section {
+        padding: 0;
+        margin: 0;
+    }
+
+    .card-front, .card-back {
+        width: 100%;
+        padding: 0;
+        margin: 0;
     }
 
     .card-front-image {
-        width: 275px;
-        position: absolute;
-        top: 200px;
-        left: 100px;
+        width: 270px;
+    }
+
+    .card-front-digits {
+        font-size: 1rem;
+    }
+
+    .card-back-image {
+        width: 270px;
     }
 }
 
