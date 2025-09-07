@@ -4,7 +4,7 @@
     --color-purple: hsl(278, 94%, 30%);
     --color-light-gray: hsl(270, 3%, 87%);
     --color-gray: hsl(212, 12%, 71%);
-    --color-blue-gray: hsl(214, 12%, 74%);
+    --color-blue-gray: hsla(214, 12%, 74%, 0.5);
     --color-washed-black: hsl(0, 0%, 15%);
     --color-dark-purple: hsl(278, 68%, 11%);
     --color-red: hsl(0, 100%, 66%);
@@ -23,78 +23,86 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 
-.card-front,
-.card-back {
-    width: 450px;
-    height: 240px;
-    border-radius: 10px;
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    pointer-events: none;
 }
 
 .background-section {
-    position: fixed;
+    position: absolute;
     z-index: 0;
     left: 0;
-    background: linear-gradient(
-            to bottom,
-            var(--color-dark-purple),
-            var(--color-pink-purple)
-    );
-    height: 100%;
-    width: 35%;
+    top: 0;
+    height: 14.375rem;
+    width: 100%;
 }
 
 .container {
     z-index: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 100px;
+    height: 100%;
+    flex-direction: column;
+    justify-content: start;
+    gap: 0;
 }
 
 .card-section {
-    min-width: 600px;
-    max-width: 600px;
+    max-width: 17.8125rem;
+    min-width: 17.8125rem;
+    height: 18.75rem;
     display: flex;
-    flex-direction: column;
-    gap: 40px;
+    flex-direction: column-reverse;
     position: relative;
+    margin-bottom: 1.25rem;
 }
 
-.form-section {
-    width: 40%;
-    margin-right: 60px;
+.card-front,
+.card-back {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0.3125rem 3.125rem 4.6875rem rgba(0, 0, 0, 0.2);
+    color: white;
+    border-radius: 0.625rem;
+}
+
+.card-front-image,
+.card-back-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-back {
+    position: absolute;
+    top: 1.875rem;
+    left: 1.875rem;
 }
 
 .card-front {
-    position: relative;
-    margin-left: 30px;
-    display: inline-block;
-    color: white;
-    box-shadow: 5px 50px 75px rgba(0, 0, 0, 0.2);
-}
-
-.card-front-image {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-.card-profile-container {
+    z-index: 3;
     position: absolute;
-    top: 30px;
-    left: 30px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
+    top: 7.5rem;
+    right: 1.875rem;
+    height: 9.75rem;
 }
 
 .card-front-logo {
     position: absolute;
-    top: 30px;
-    left: 30px;
+    width: 3.4375rem;
+    left: 1.25rem;
+    top: 1.25rem;
 }
 
 .card-front-digits {
@@ -102,8 +110,8 @@ body {
     margin: auto;
     left: 0;
     right: 0;
-    bottom: 60px;
-    font-size: 28px;
+    bottom: 3rem;
+    font-size: 1rem;
     font-weight: 400;
     text-align: center;
     letter-spacing: 0.2rem;
@@ -111,62 +119,46 @@ body {
 
 .card-front-name,
 .card-front-date-first, .card-front-date-middle, .card-front-date-last {
-    font-size: 14px;
+    font-size: 0.6rem;
     font-weight: 400;
+    position: absolute;
+    bottom: 1.25rem;
 }
 
 .card-front-name {
-    position: absolute;
-    left: 30px;
-    bottom: 20px;
+    left: 1.25rem;
 }
 
 .card-front-date-first {
-    position: absolute;
-    right: 60px;
-    bottom: 20px;
+    right: 2.625rem;
 }
 
 .card-front-date-middle {
-    position: absolute;
-    right: 52px;
-    bottom: 21px;
+    right: 2.25rem;
 }
 
 .card-front-date-last {
-    position: absolute;
-    right: 30px;
-    bottom: 20px;
-}
-
-.card-back {
-    position: relative;
-    display: inline-block;
-    width: auto;
-    margin-left: auto;
-    margin-right: 30px;
-    box-shadow: 5px 50px 75px rgba(0, 0, 0, 0.15);
+    right: 1.25rem;
 }
 
 .card-back-num {
     position: absolute;
-    bottom: 110px;
-    right: 45px;
     color: white;
-    font-size: 14px;
-    margin-right: 15px;
+    font-size: 0.6rem;
+    right: 2.5rem;
+    top: 4.375rem;
 }
 
-.form-section,
-.completed-section {
-    min-width: 400px;
-    max-width: 400px;
+.form-section, .completed-section {
+    min-width: 90%;
+    max-width: 90%;
+    margin: 0;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 1.25rem;
 }
 
 .card-name-container,
@@ -174,20 +166,20 @@ form {
 .card-exp-date-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.625rem;
 }
 
 .card-name-label,
 .card-number-label,
 .card-exp-date-label,
 .card-cvc-label {
-    font-size: 12px;
+    font-size: 0.75rem;
 }
 
 input {
-    height: 45px;
+    height: 2.8125rem;
     border-radius: 10px;
-    border: 1.5px solid var(--color-light-gray);
+    border: 0.125rem solid var(--color-light-gray);
     outline: none;
 }
 
@@ -201,7 +193,6 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-/* Hide spin buttons in Firefox */
 input[type="number"] {
     -moz-appearance: textfield;
 }
@@ -211,28 +202,24 @@ input[type="number"] {
 #card-cvc,
 #card-exp-date-month,
 #card-exp-date-year {
-    font-size: 16px;
+    font-size: 1rem;
     opacity: 50%;
-    padding-left: 15px;
-}
-
-#card-number {
-    margin-bottom: 0;
+    padding-left: 0.9375rem;
 }
 
 .form-bottom-section {
     display: flex;
-    gap: 20px;
+    gap: 1.25rem;
 }
 
 .form-bottom-container {
     display: flex;
-    gap: 10px;
+    gap: 0.625rem;
 }
 
 #card-exp-date-month,
 #card-exp-date-year {
-    width: 75px;
+    width: 4.6875rem;
 }
 
 .form-cvc-container,
@@ -245,24 +232,20 @@ input[type="number"] {
     width: 100%;
 }
 
-.card-exp-date-container {
-    display: flex;
-}
-
 #card-exp-date-month,
 #card-exp-date-year,
 #card-cvc {
-    margin-top: 10px;
+    margin: 0.625rem 0;
 }
 
 button {
-    height: 55px;
-    margin-top: 5px;
+    height: 3.4375rem;
+    margin-top: 0.3125rem;
     border: none;
-    border-radius: 7px;
+    border-radius: 0.4375rem;
     background: var(--color-dark-purple);
     color: white;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .error {
@@ -272,35 +255,30 @@ button {
 .error-message {
     display: none;
     color: var(--color-red);
-    font-size: 10px;
+    font-size: 0.625rem;
 }
 
 .error-message.show {
     display: block;
 }
 
-.form-bottom-section input {
-    margin-bottom: 10px;
-}
-
 .completed-section {
     display: none;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
-    margin-right: 60px;
+    gap: 1.875rem;
 }
 
 .completed-image {
-    width: 65px;
+    width: 4.0625rem;
 }
 
 .completed-heading {
-    font-size: 22px;
+    font-size: 1.375rem;
 }
 
 .completed-message {
-    font-size: 13px;
+    font-size: 0.8125rem;
     opacity: 50%;
 }
 
@@ -308,60 +286,138 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 0.9375rem;
 }
 
 .completed-section button {
     width: 90%;
 }
 
-@media (max-width: 1100px) {
-    .container {
-        flex-direction: column;
-    }
-
-    .background-section {
-        bottom: 600px;
-        width: 100%;
-    }
+.attribution-background {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(90%, 25rem);
+    background: var(--color-blue-gray);
+    backdrop-filter: blur(0.625rem); /* 10px */
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    text-align: center;
 }
 
-@media screen and (max-width: 375px) {
-    .card-section, .form-section, .completed-section {
-        min-width: 100%;
-        max-width: 100%;
-    }
+.attribution {
+    font-size: 0.8rem;
+    margin: 0;
+}
 
+@media screen and (min-width: 1110px) {
     .background-section {
-        max-width: 375px;
+        position: fixed;
+        height: 100%;
+        width: 35%;
+        top: auto;
     }
 
-    .form-section {
-        margin-right: 0;
+    .container {
+        flex-direction: row;
+        justify-content: center;
+        gap: 6.25rem;
     }
 
     .card-section {
-        padding: 0;
-        margin: 0;
+        min-width: 37.5rem;
+        max-width: 37.5rem;
+        flex-direction: column;
+        gap: 2.5rem;
+        height: auto;
+        margin-top: 0;
     }
 
-    .card-front, .card-back {
-        width: 100%;
-        padding: 0;
-        margin: 0;
+    .card-front,
+    .card-back {
+        width: 28.125rem;
+        height: 15rem;
+        position: relative;
+        box-shadow: 0.3125rem 3.125rem 4.6875rem rgba(0, 0, 0, 0.2);
     }
 
-    .card-front-image {
-        width: 270px;
+    .card-back {
+        margin-left: auto;
+        margin-right: 1.875rem;
+        top: auto;
+        left: auto;
+    }
+
+    .card-front {
+        margin-left: 1.875rem;
+        z-index: auto;
+        top: auto;
+        right: auto;
+        height: 15rem;
+    }
+
+    .card-front-logo {
+        width: auto;
+        left: 1.875rem;
+        top: 1.875rem;
     }
 
     .card-front-digits {
-        font-size: 1rem;
+        font-size: 1.75rem;
+        bottom: 3.75rem;
     }
 
-    .card-back-image {
-        width: 270px;
+    .card-front-name,
+    .card-front-date-first, .card-front-date-middle, .card-front-date-last {
+        font-size: 0.875rem;
+        bottom: 1.25rem;
+    }
+
+    .card-front-name {
+        left: 1.875rem;
+    }
+
+    .card-front-date-first {
+        right: 3.75rem;
+    }
+
+    .card-front-date-middle {
+        right: 3.25rem;
+        bottom: 1.3125rem;
+    }
+
+    .card-front-date-last {
+        right: 1.875rem;
+    }
+
+    .card-back-num {
+        font-size: 0.875rem;
+        bottom: 6.875rem;
+        right: 2.8125rem;
+        margin-right: 0.9375rem;
+        top: auto;
+    }
+
+    .form-section {
+        min-width: 25rem;
+        max-width: 25rem;
+        width: 40%;
+        margin-right: 3.75rem;
+    }
+
+    form {
+        gap: 1.5625rem;
+    }
+
+    .completed-section {
+        min-width: 25rem;
+        max-width: 25rem;
+        margin-right: 3.75rem;
+    }
+
+    .attribution-background {
+        width: min(45%, 30rem);
+        bottom: 2rem;
     }
 }
-
-
